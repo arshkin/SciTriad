@@ -9,7 +9,7 @@
     <style>
 
        .alberta-button {
-            background-color: #4CAF50; /* Green */
+            background-color: #9B870C; /* Green */
             color: white;
             padding: 15px 20px;
             text-align: center;
@@ -43,7 +43,6 @@
             }
         }
 
-
         header {
             background-color: #38B6FF; /* Dark Blue */
             color: #fff;
@@ -52,6 +51,14 @@
             border-bottom: 10px solid #ffeb3b; /* Yellow */
             font-family: 'Roboto', cursive; /* Fancier Font */
             font-size: xx-large;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        body {
+            margin-top: 250px; /* Adjust this value to match the height of your fixed header */
         }
 
         nav {
@@ -91,6 +98,8 @@
             bottom: 0;
             width: 100%;
             border-top: 10px solid #ffeb3b; /* Yellow */
+            opacity: 0; /* Initially hidden */
+            transition: opacity 0.3s;
         }
 
         #logo {
@@ -134,35 +143,20 @@
         <!-- Add specific content for each grade -->
         <div id="grade10">
             <h3>Grade 10 Chemistry</h3>
-            <p>Content for Grade 10 Chemistry goes here.</p>
+            <p>In Grade 10 Chemistry, students explore fundamental concepts such as atomic structure, chemical bonding, and basic principles of chemical reactions. This forms the foundation for more advanced topics in the coming years.</p>
         </div>
 
         <div id="grade11">
             <h3>Grade 11 Chemistry</h3>
-            <p>Content for Grade 11 Chemistry goes here.</p>
+            <p>Grade 11 Chemistry delves deeper into topics like stoichiometry, gases, and thermodynamics. Students start to explore the diversity of chemical reactions and their applications in various fields.</p>
         </div>
 
         <div id="grade12">
             <h3>Grade 12 Chemistry</h3>
-            <p>Content for Grade 12 Chemistry goes here.</p>
+            <p>The Grade 12 Chemistry curriculum introduces advanced concepts such as organic chemistry, chemical kinetics, and equilibrium. Students engage in more complex experiments and gain a comprehensive understanding of chemical principles.</p>
         </div>
 
 
-        <h3>Alberta High School Curriculum</h3>
-
-        <!-- Button for Chemistry 20 dropdown -->
-        <button class="dropdown-button" onclick="toggleDropdown('chem20Dropdown')">Chemistry 20</button>
-        <div id="chem20Dropdown" class="dropdown-content">
-            <a href="EX1">Content for Chemistry 20</a>
-            <!-- Add more links as needed for Chemistry 20 content -->
-        </div>
-
-        <!-- Button for Chemistry 30 dropdown -->
-        <button class="dropdown-button" onclick="toggleDropdown('chem30Dropdown')">Chemistry 30</button>
-        <div id="chem30Dropdown" class="dropdown-content">
-            <a href="EX1">Content for Chemistry 30</a>
-            <!-- Add more links as needed for Chemistry 30 content -->
-        </div>
 
 
         <h3>Advanced Placement (AP) Chemistry</h3>
@@ -175,6 +169,21 @@
     <footer>
         &copy; 2023 Scitriad - Science Games - Coded By ArshbirBhamra
     </footer>
+    <script>
+        var lastScrollTop = 0;
+
+        window.addEventListener("scroll", function() {
+            var st = window.pageYOffset || document.documentElement.scrollTop;
+            if (st > lastScrollTop){
+                // Scrolling down
+                document.querySelector('footer').style.opacity = '0';
+            } else {
+                // Scrolling up
+                document.querySelector('footer').style.opacity = '1';
+            }
+            lastScrollTop = st;
+        });
+    </script>
 
 </body>
 </html>
